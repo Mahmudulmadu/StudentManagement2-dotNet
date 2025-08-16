@@ -7,61 +7,18 @@ namespace StudentManagement.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Student> StudentResults { get; set; }
+        public DbSet<Student> Students => Set<Student>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Student>().HasData(
-                new Student
-                {
-                    Id = 1,
-                    StudentName = "Alice Rahman",
-                    CourseTitle = "Mathematics",
-                    TotalMarks = 45,
-                    Status = Status.NeedsImprovement
-                },
-                new Student
-                {
-                    Id = 2,
-                    StudentName = "Tanvir Ahmed",
-                    CourseTitle = "Physics",
-                    TotalMarks = 75,
-                    Status = Status.Good
-                },
-                new Student
-                {
-                    Id = 3,
-                    StudentName = "Nusrat Jahan",
-                    CourseTitle = "English",
-                    TotalMarks = 85,
-                    Status = Status.Excellent
-                },
-                new Student
-                {
-                    Id = 4,
-                    StudentName = "Rafiul Islam",
-                    CourseTitle = "Chemistry",
-                    TotalMarks = 68,
-                    Status = Status.Good
-                },
-                new Student
-                {
-                    Id = 5,
-                    StudentName = "Mim Chowdhury",
-                    CourseTitle = "Biology",
-                    TotalMarks = 88,
-                    Status = Status.Excellent
-                },
-                new Student
-                {
-                    Id = 6,
-                    StudentName = "Mehedi Hasan",
-                    CourseTitle = "History",
-                    TotalMarks = 33,
-                    Status = Status.NeedsImprovement
-                }
+                new Student { Id = 1, FirstName = "Alice", LastName = "Rahman", Email = "alice@example.com", Age = 17 },
+                new Student { Id = 2, FirstName = "Tanvir", LastName = "Ahmed", Email = "tanvir@example.com", Age = 19 },
+                new Student { Id = 3, FirstName = "Nusrat", LastName = "Jahan", Email = "nusrat@example.com", Age = 22 },
+                new Student { Id = 4, FirstName = "Rafiul", LastName = "Islam", Email = "rafiul@example.com", Age = 18 },
+                new Student { Id = 5, FirstName = "Mim", LastName = "Chowdhury", Email = "mim@example.com", Age = 25 }
             );
         }
 

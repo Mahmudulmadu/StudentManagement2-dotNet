@@ -29,72 +29,68 @@ namespace StudentManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CourseTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
+                    b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("StudentName")
+                    b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("TotalMarks")
-                        .HasColumnType("int");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("StudentResults");
+                    b.ToTable("Students");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CourseTitle = "Mathematics",
-                            Status = 0,
-                            StudentName = "Alice Rahman",
-                            TotalMarks = 45
+                            Age = 17,
+                            Email = "alice@example.com",
+                            FirstName = "Alice",
+                            LastName = "Rahman"
                         },
                         new
                         {
                             Id = 2,
-                            CourseTitle = "Physics",
-                            Status = 1,
-                            StudentName = "Tanvir Ahmed",
-                            TotalMarks = 75
+                            Age = 19,
+                            Email = "tanvir@example.com",
+                            FirstName = "Tanvir",
+                            LastName = "Ahmed"
                         },
                         new
                         {
                             Id = 3,
-                            CourseTitle = "English",
-                            Status = 2,
-                            StudentName = "Nusrat Jahan",
-                            TotalMarks = 85
+                            Age = 22,
+                            Email = "nusrat@example.com",
+                            FirstName = "Nusrat",
+                            LastName = "Jahan"
                         },
                         new
                         {
                             Id = 4,
-                            CourseTitle = "Chemistry",
-                            Status = 1,
-                            StudentName = "Rafiul Islam",
-                            TotalMarks = 68
+                            Age = 18,
+                            Email = "rafiul@example.com",
+                            FirstName = "Rafiul",
+                            LastName = "Islam"
                         },
                         new
                         {
                             Id = 5,
-                            CourseTitle = "Biology",
-                            Status = 2,
-                            StudentName = "Mim Chowdhury",
-                            TotalMarks = 88
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CourseTitle = "History",
-                            Status = 0,
-                            StudentName = "Mehedi Hasan",
-                            TotalMarks = 33
+                            Age = 25,
+                            Email = "mim@example.com",
+                            FirstName = "Mim",
+                            LastName = "Chowdhury"
                         });
                 });
 #pragma warning restore 612, 618
